@@ -4,7 +4,6 @@ import { Hero } from './components/Hero';
 import { Problem } from './components/Problem';
 import { Benefits } from './components/Benefits';
 import { Solution } from './components/Solution';
-import { GeminiDemo } from './components/GeminiDemo';
 import { Offer } from './components/Offer';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
@@ -23,7 +22,6 @@ const App: React.FC = () => {
         <div className="scroll-reveal"><Problem /></div>
         <div className="scroll-reveal"><Benefits /></div>
         <div className="scroll-reveal"><Solution /></div>
-        <div className="scroll-reveal"><GeminiDemo /></div>
         <div className="scroll-reveal"><Offer /></div>
         <div className="scroll-reveal"><FAQ /></div>
         <div className="scroll-reveal"><Contact /></div>
