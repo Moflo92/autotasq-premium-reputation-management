@@ -1,35 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Lock, Shield, CheckCircle2, Calendar } from 'lucide-react';
-
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
+import { openCalModal } from '../hooks/useCalInit';
 
 export const Contact: React.FC = () => {
-  useEffect(() => {
-    // Initialize Cal.com when component mounts
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('init', { origin: 'https://app.cal.com' });
-    }
-  }, []);
-
-  const openCalModal = () => {
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#0f172a' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view'
-      });
-      window.Cal('openModal', {
-        calLink: 'florian-autotasq/30min',
-        config: { layout: 'month_view' }
-      });
-    }
-  };
-
   return (
     <section id="contact" className="py-24 bg-slate-50 border-t border-slate-200">
       <div className="max-w-xl mx-auto px-6">

@@ -9,10 +9,14 @@ import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { useCalInit } from './hooks/useCalInit';
 
 const App: React.FC = () => {
   // Initialize scroll reveal animations
   useScrollReveal();
+
+  // Initialize Cal.com
+  useCalInit();
 
   return (
     <div className="min-h-screen bg-brand-light text-slate-900 selection:bg-blue-200 selection:text-blue-900">

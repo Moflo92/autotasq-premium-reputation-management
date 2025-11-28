@@ -1,28 +1,8 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
+import { openCalModal } from '../hooks/useCalInit';
 
 export const Offer: React.FC = () => {
-  const openCalModal = () => {
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#0f172a' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view'
-      });
-      window.Cal('openModal', {
-        calLink: 'florian-autotasq/30min',
-        config: { layout: 'month_view' }
-      });
-    }
-  };
-
   return (
     <section id="offer" className="py-24 relative overflow-hidden bg-white">
       {/* Gradients */}

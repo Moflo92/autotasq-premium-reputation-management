@@ -1,28 +1,8 @@
 import React from 'react';
 import { ArrowRight, Star, Shield, CheckCircle2 } from 'lucide-react';
-
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
+import { openCalModal } from '../hooks/useCalInit';
 
 export const Hero: React.FC = () => {
-  const openCalModal = () => {
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#0f172a' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view'
-      });
-      window.Cal('openModal', {
-        calLink: 'florian-autotasq/30min',
-        config: { layout: 'month_view' }
-      });
-    }
-  };
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-light">
       {/* Background Ambience - Adjusted for light theme */}

@@ -1,11 +1,6 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
-
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
+import { openCalModal as openCal } from '../hooks/useCalInit';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,18 +15,7 @@ export const Navbar: React.FC = () => {
   };
 
   const openCalModal = () => {
-    if (typeof window !== 'undefined' && window.Cal) {
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#0f172a' } },
-        hideEventTypeDetails: false,
-        layout: 'month_view'
-      });
-      window.Cal('openModal', {
-        calLink: 'florian-autotasq/30min',
-        config: { layout: 'month_view' }
-      });
-    }
+    openCal();
     setIsOpen(false);
   };
 
