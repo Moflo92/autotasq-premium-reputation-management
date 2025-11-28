@@ -1,7 +1,28 @@
 import React from 'react';
 import { ArrowRight, Star, Shield, CheckCircle2 } from 'lucide-react';
 
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
+
 export const Hero: React.FC = () => {
+  const openCalModal = () => {
+    if (typeof window !== 'undefined' && window.Cal) {
+      window.Cal('ui', {
+        theme: 'light',
+        styles: { branding: { brandColor: '#0f172a' } },
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      });
+      window.Cal('openModal', {
+        calLink: 'florian-autotasq/30min',
+        config: { layout: 'month_view' }
+      });
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-brand-light">
       {/* Background Ambience - Adjusted for light theme */}
@@ -61,12 +82,12 @@ export const Hero: React.FC = () => {
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="flex flex-col items-center gap-2">
               <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
+                onClick={openCalModal}
                 className="group relative px-8 py-4 bg-slate-900 text-white rounded-full text-sm font-bold tracking-wide overflow-hidden hover:scale-105 transition-transform duration-300 shadow-xl shadow-slate-900/20"
-                aria-label="Démarrer l'audit gratuit"
+                aria-label="Réserver un appel gratuit"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Démarrer Mon Audit Gratuit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Réserver Mon Appel Gratuit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
               <span className="text-xs text-slate-500">Configuration 5 min · Aucune carte requise</span>

@@ -1,7 +1,28 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
+
 export const Offer: React.FC = () => {
+  const openCalModal = () => {
+    if (typeof window !== 'undefined' && window.Cal) {
+      window.Cal('ui', {
+        theme: 'light',
+        styles: { branding: { brandColor: '#0f172a' } },
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      });
+      window.Cal('openModal', {
+        calLink: 'florian-autotasq/30min',
+        config: { layout: 'month_view' }
+      });
+    }
+  };
+
   return (
     <section id="offer" className="py-24 relative overflow-hidden bg-white">
       {/* Gradients */}
@@ -61,11 +82,11 @@ export const Offer: React.FC = () => {
           </div>
 
           <button
-             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
+             onClick={openCalModal}
              className="w-full md:w-auto px-12 py-5 bg-slate-900 text-white rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-slate-900/20"
-             aria-label="Démarrer la période d'essai gratuite"
+             aria-label="Réserver un appel de découverte"
           >
-            Obtenir Mes 10 Premiers Avis
+            Réserver Mon Appel Gratuit
           </button>
 
           <p className="mt-6 text-xs text-slate-400">

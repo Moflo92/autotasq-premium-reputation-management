@@ -1,6 +1,12 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
+
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -11,6 +17,22 @@ export const Navbar: React.FC = () => {
       element.scrollIntoView({ behavior: 'auto' });
       setIsOpen(false);
     }
+  };
+
+  const openCalModal = () => {
+    if (typeof window !== 'undefined' && window.Cal) {
+      window.Cal('ui', {
+        theme: 'light',
+        styles: { branding: { brandColor: '#0f172a' } },
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      });
+      window.Cal('openModal', {
+        calLink: 'florian-autotasq/30min',
+        config: { layout: 'month_view' }
+      });
+    }
+    setIsOpen(false);
   };
 
   return (
@@ -31,11 +53,11 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollTo('how-it-works')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Comment ça marche</button>
           <button onClick={() => scrollTo('faq')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">FAQ</button>
           <button
-            onClick={() => scrollTo('contact')}
+            onClick={openCalModal}
             className="px-6 py-2 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10"
-            aria-label="Commencer l'essai gratuit"
+            aria-label="Réserver un appel gratuit"
           >
-            Essai Gratuit
+            Réserver un Appel
           </button>
         </div>
 
@@ -52,7 +74,7 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollTo('benefits')} className="text-left text-slate-600 hover:text-slate-900">Avantages</button>
           <button onClick={() => scrollTo('how-it-works')} className="text-left text-slate-600 hover:text-slate-900">Comment ça marche</button>
           <button onClick={() => scrollTo('faq')} className="text-left text-slate-600 hover:text-slate-900">FAQ</button>
-          <button onClick={() => scrollTo('contact')} className="text-left text-brand-accent font-semibold">Commencer l'essai</button>
+          <button onClick={openCalModal} className="text-left text-brand-accent font-semibold">Réserver un Appel</button>
         </div>
       )}
     </nav>
