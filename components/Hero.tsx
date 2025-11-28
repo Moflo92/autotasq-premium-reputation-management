@@ -19,15 +19,15 @@ export const Hero: React.FC = () => {
         </div>
         
         <h1 className="text-5xl md:text-8xl font-sans font-medium text-slate-900 mb-8 leading-[0.9] tracking-tight">
-          L'Influence <br />
+          Votre Réputation <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-            Automatisée.
+            Amplifiée.
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
           Obtenez des avis Google 5 étoiles optimisés pour le SEO sans lever le petit doigt.
-          Pendant que d'autres négligent leur réputation en ligne, construisez la vôtre stratégiquement avec notre IA.
+          Pendant que d'autres négligent leur réputation en ligne, construisez la vôtre stratégiquement avec notre système.
         </p>
 
         {/* Social Proof & Trust Badges */}
@@ -58,10 +58,10 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4">
             <div className="flex flex-col items-center gap-2">
               <button
-                onClick={() => document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
                 className="group relative px-8 py-4 bg-slate-900 text-white rounded-full text-sm font-bold tracking-wide overflow-hidden hover:scale-105 transition-transform duration-300 shadow-xl shadow-slate-900/20"
                 aria-label="Démarrer l'audit gratuit"
               >
@@ -71,14 +71,6 @@ export const Hero: React.FC = () => {
               </button>
               <span className="text-xs text-slate-500">Configuration 5 min · Aucune carte requise</span>
             </div>
-
-            <button
-              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 bg-white border border-slate-200 text-slate-600 rounded-full text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors shadow-sm"
-              aria-label="Voir la technologie"
-            >
-              Voir la technologie
-            </button>
           </div>
         </div>
       </div>

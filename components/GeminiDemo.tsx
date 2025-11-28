@@ -41,8 +41,8 @@ export const GeminiDemo: React.FC = () => {
             </div>
             
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Voyez la différence entre un avis standard et un avis optimisé par la technologie <strong>Autotasq</strong>. 
-              Nos suggestions intelligentes poussent vos clients à utiliser les mots-clés que Google adore.
+              Voyez la différence entre un avis standard et un avis optimisé avec <strong>Autotasq</strong>.
+              Notre approche guidée aide vos clients à formuler des avis détaillés contenant les termes que Google valorise.
             </p>
 
             <form onSubmit={handleGenerate} className="space-y-6 max-w-md">
@@ -81,7 +81,7 @@ export const GeminiDemo: React.FC = () => {
              {!result && !loading && (
                <div className="text-center text-slate-400">
                  <Bot size={48} className="mx-auto mb-4 opacity-50" />
-                 <p>Entrez vos détails pour voir la magie de l'IA opérer.</p>
+                 <p>Entrez vos détails pour voir notre système opérer.</p>
                </div>
              )}
 
@@ -89,7 +89,7 @@ export const GeminiDemo: React.FC = () => {
                <div className="text-center text-blue-600 animate-pulse">
                  <div className="w-16 h-1 bg-blue-200 rounded-full mx-auto mb-4"></div>
                  <p className="text-sm font-medium">Analyse des mots-clés locaux...</p>
-                 <p className="text-xs text-slate-400 mt-2">Powered by Gemini 2.5 Flash</p>
+                 <p className="text-xs text-slate-400 mt-2">Technologie Autotasq</p>
                </div>
              )}
 

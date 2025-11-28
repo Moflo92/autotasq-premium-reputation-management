@@ -16,7 +16,7 @@ export const Solution: React.FC = () => {
     {
       icon: <CheckCircle size={24} />,
       title: "3. Croissance",
-      desc: "Les avis 5 étoiles s'accumulent. L'IA rédige les réponses. Votre classement grimpe. Vous regardez les résultats."
+      desc: "Les avis 5 étoiles s'accumulent. Notre système rédige les réponses. Votre classement grimpe. Vous regardez les résultats."
     }
   ];
 

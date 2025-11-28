@@ -21,19 +21,19 @@ export const Offer: React.FC = () => {
             <div className="space-y-3 text-left">
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-600">✓ 10 Avis Optimisés</span>
-                <span className="text-slate-900 font-semibold">890€</span>
+                <span className="text-slate-900 font-semibold">0€</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-600">✓ Configuration & Formation</span>
-                <span className="text-slate-900 font-semibold">490€</span>
+                <span className="text-slate-900 font-semibold line-through">99€</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-600">✓ Support 24/7 (14j)</span>
-                <span className="text-slate-900 font-semibold">290€</span>
+                <span className="text-slate-900 font-semibold line-through">99€</span>
               </div>
               <div className="border-t border-slate-300 pt-3 mt-3 flex justify-between items-center">
                 <span className="text-slate-600 font-medium">Valeur totale :</span>
-                <span className="text-slate-500 line-through">1,670€</span>
+                <span className="text-slate-500 line-through">198€</span>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export const Offer: React.FC = () => {
           </div>
 
           <button
-             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
              className="w-full md:w-auto px-12 py-5 bg-slate-900 text-white rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-slate-900/20"
              aria-label="Démarrer la période d'essai gratuite"
           >

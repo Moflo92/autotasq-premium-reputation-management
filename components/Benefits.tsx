@@ -6,7 +6,7 @@ export const Benefits: React.FC = () => {
     {
       icon: <Trophy className="text-amber-500" size={32} />,
       title: "Domination Locale",
-      desc: "L'algorithme de Google favorise la fraîcheur et la pertinence. En injectant un flux constant d'avis optimisés, nous propulsons votre fiche en haut des résultats Maps."
+      desc: "L'algorithme de Google favorise la fraîcheur et la pertinence. En générant un flux régulier d'avis authentiques et bien formulés, nous propulsons votre fiche en haut des résultats Maps."
     },
     {
       icon: <Magnet className="text-blue-500" size={32} />,
@@ -16,7 +16,7 @@ export const Benefits: React.FC = () => {
     {
       icon: <Sparkles className="text-indigo-500" size={32} />,
       title: "SEO Sémantique",
-      desc: "Ce ne sont pas juste des étoiles. Nos avis contiennent les mots-clés exacts que vos clients recherchent (ex: \"meilleur dentiste urgence\"), renforçant votre SEO local mécaniquement."
+      desc: "Ce ne sont pas juste des étoiles. Les avis collectés contiennent naturellement les termes que vos clients recherchent (ex: \"meilleur dentiste urgence\"), renforçant votre visibilité locale de manière organique."
     }
   ];
 

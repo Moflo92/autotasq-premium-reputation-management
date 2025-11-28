@@ -9,15 +9,15 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question: "Est-ce conforme aux règles de Google ?",
-    answer: "Oui, absolument. Autotasq respecte strictement les directives de Google Business Profile. Nous sollicitons uniquement de vrais clients après leur achat ou service. Notre IA optimise le contenu pour le SEO, mais chaque avis provient d'une expérience client authentique. Nous ne créons jamais de faux avis."
+    answer: "Oui, absolument. Autotasq respecte strictement les directives de Google Business Profile. Nous sollicitons uniquement de vrais clients après leur achat ou service. Notre système optimise le contenu pour le SEO, mais chaque avis provient d'une expérience client authentique. Nous ne créons jamais de faux avis."
   },
   {
     question: "Les avis sont-ils de vrais clients ?",
-    answer: "Oui, tous les avis proviennent de vos clients réels. Notre système envoie automatiquement des demandes d'avis par SMS ou QR code après chaque transaction. L'IA d'Autotasq aide simplement vos clients à formuler leurs retours de manière optimisée pour le référencement local."
+    answer: "Oui, tous les avis proviennent de vos clients réels. Notre système envoie automatiquement des demandes d'avis par SMS ou QR code après chaque transaction. Le système Autotasq aide simplement vos clients à formuler leurs retours de manière optimisée pour le référencement local."
   },
   {
-    question: "Comment l'IA optimise-t-elle le SEO ?",
-    answer: "Notre technologie Google Gemini analyse les mots-clés stratégiques de votre secteur et localité. Elle suggère aux clients des formulations qui incluent naturellement ces termes (ex: 'coupe moderne' plutôt que 'très bien'). Cela améliore votre visibilité sur les recherches spécifiques tout en restant authentique."
+    question: "Comment le système optimise-t-il le SEO ?",
+    answer: "Notre technologie analyse les mots-clés stratégiques de votre secteur et localité. Elle suggère aux clients des formulations qui incluent naturellement ces termes (ex: 'coupe moderne' plutôt que 'très bien'). Cela améliore votre visibilité sur les recherches spécifiques tout en restant authentique."
   },
   {
     question: "Combien de temps avant de voir des résultats ?",
@@ -25,7 +25,7 @@ const faqData: FAQItem[] = [
   },
   {
     question: "Dois-je faire quelque chose après l'inscription ?",
-    answer: "Presque rien ! Après la configuration initiale de 5 minutes (connexion de votre compte Google Business), le système fonctionne en pilote automatique. Vous pouvez optionnellement personnaliser les messages SMS, mais ce n'est pas obligatoire. Notre IA gère même les réponses aux avis automatiquement."
+    answer: "Presque rien ! Après la configuration initiale de 5 minutes (connexion de votre compte Google Business), le système fonctionne en pilote automatique. Vous pouvez optionnellement personnaliser les messages SMS, mais ce n'est pas obligatoire. Notre système gère même les réponses aux avis automatiquement."
   },
   {
     question: "Que se passe-t-il après les 14 jours ?",
@@ -101,7 +101,7 @@ export const FAQ: React.FC = () => {
         <div className="mt-12 text-center">
           <p className="text-slate-600 mb-4">Vous avez une autre question ?</p>
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'auto' })}
             className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-300 text-slate-700 rounded-full text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors shadow-sm"
             aria-label="Contacter le support"
           >

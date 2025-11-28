@@ -7,7 +7,8 @@ export const Navbar: React.FC = () => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Transition instantanée sans animation de scroll
+      element.scrollIntoView({ behavior: 'auto' });
       setIsOpen(false);
     }
   };
@@ -28,10 +29,9 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollTo('problem')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Pourquoi Nous ?</button>
           <button onClick={() => scrollTo('benefits')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Avantages</button>
           <button onClick={() => scrollTo('how-it-works')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Comment ça marche</button>
-          <button onClick={() => scrollTo('demo')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">Démo IA</button>
           <button onClick={() => scrollTo('faq')} className="text-sm text-slate-600 hover:text-slate-900 transition-colors">FAQ</button>
           <button
-            onClick={() => scrollTo('offer')}
+            onClick={() => scrollTo('contact')}
             className="px-6 py-2 bg-slate-900 text-white text-sm font-semibold rounded-full hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/10"
             aria-label="Commencer l'essai gratuit"
           >
@@ -51,9 +51,8 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollTo('problem')} className="text-left text-slate-600 hover:text-slate-900">Pourquoi Nous ?</button>
           <button onClick={() => scrollTo('benefits')} className="text-left text-slate-600 hover:text-slate-900">Avantages</button>
           <button onClick={() => scrollTo('how-it-works')} className="text-left text-slate-600 hover:text-slate-900">Comment ça marche</button>
-          <button onClick={() => scrollTo('demo')} className="text-left text-slate-600 hover:text-slate-900">Démo IA</button>
           <button onClick={() => scrollTo('faq')} className="text-left text-slate-600 hover:text-slate-900">FAQ</button>
-          <button onClick={() => scrollTo('offer')} className="text-left text-brand-accent font-semibold">Commencer l'essai</button>
+          <button onClick={() => scrollTo('contact')} className="text-left text-brand-accent font-semibold">Commencer l'essai</button>
         </div>
       )}
     </nav>
