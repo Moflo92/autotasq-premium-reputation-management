@@ -8,25 +8,29 @@ declare global {
 
 export const useCalInit = () => {
   useEffect(() => {
-    // Wait for Cal script to load and initialize
     const initCal = () => {
       if (typeof window !== 'undefined' && window.Cal) {
-        // Initialize Cal.com
-        window.Cal('init', { origin: 'https://app.cal.com' });
+        try {
+          // Initialize with the new API syntax
+          window.Cal('init', 'florian-autotasq', { origin: 'https://cal.com' });
 
-        // Set default namespace with custom styles
-        window.Cal('ui', {
-          theme: 'light',
-          styles: {
-            branding: {
-              brandColor: '#0f172a'
-            }
-          },
-          hideEventTypeDetails: false
-        });
+          // Set UI configuration
+          window.Cal('ui', {
+            theme: 'light',
+            styles: {
+              branding: {
+                brandColor: '#0f172a'
+              }
+            },
+            hideEventTypeDetails: false
+          });
 
-        console.log('✅ Cal.com initialized successfully');
-        return true;
+          console.log('✅ Cal.com initialized successfully');
+          return true;
+        } catch (error) {
+          console.error('❌ Cal.com init error:', error);
+          return false;
+        }
       }
       return false;
     };
@@ -54,31 +58,26 @@ export const useCalInit = () => {
   }, []);
 };
 
-// Open Cal.com modal with fallback to direct link
+// Open Cal.com modal using the data-cal-namespace approach
 export const openCalModal = () => {
-  console.log('🔵 Attempting to open Cal.com modal...');
+  console.log('🔵 Opening Cal.com modal...');
 
   if (typeof window !== 'undefined' && window.Cal) {
     try {
-      window.Cal('ui', {
-        theme: 'light',
-        styles: { branding: { brandColor: '#0f172a' } },
-        hideEventTypeDetails: false
+      // Use the correct syntax: Cal(namespace, event, data)
+      window.Cal('florian-autotasq', 'modal', {
+        calLink: '30min'
       });
 
-      window.Cal('openModal', {
-        calLink: 'florian-autotasq/30min'
-      });
-
-      console.log('✅ Modal opened successfully');
+      console.log('✅ Modal triggered');
     } catch (error) {
       console.error('❌ Error opening modal:', error);
       // Fallback: open in new tab
+      console.log('↗️ Opening in new tab as fallback');
       window.open('https://cal.com/florian-autotasq/30min', '_blank');
     }
   } else {
-    console.warn('⚠️ Cal.com not loaded - opening direct link as fallback');
-    // Fallback: open in new tab if Cal is not loaded
+    console.warn('⚠️ Cal.com not loaded - opening direct link');
     window.open('https://cal.com/florian-autotasq/30min', '_blank');
   }
 };
