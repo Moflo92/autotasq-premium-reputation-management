@@ -11,8 +11,8 @@ export const useCalInit = () => {
     const initCal = () => {
       if (typeof window !== 'undefined' && window.Cal) {
         try {
-          // Initialize with the new API syntax
-          window.Cal('init', 'florian-autotasq', { origin: 'https://cal.com' });
+          // Simple init without namespace
+          window.Cal('init', { origin: 'https://cal.com' });
 
           // Set UI configuration
           window.Cal('ui', {
@@ -45,7 +45,6 @@ export const useCalInit = () => {
       }
     }, 100);
 
-    // Cleanup after 10 seconds
     const timeout = setTimeout(() => {
       clearInterval(checkInterval);
       console.warn('⚠️ Cal.com script not loaded after 10s');
@@ -58,26 +57,36 @@ export const useCalInit = () => {
   }, []);
 };
 
-// Open Cal.com modal using the data-cal-namespace approach
+// Create and click a hidden link with data-cal-link attribute
+// This is the official recommended way by Cal.com
 export const openCalModal = () => {
-  console.log('🔵 Opening Cal.com modal...');
+  console.log('🔵 Opening Cal.com modal via data-cal-link...');
 
-  if (typeof window !== 'undefined' && window.Cal) {
-    try {
-      // Use the correct syntax: Cal(namespace, event, data)
-      window.Cal('florian-autotasq', 'modal', {
-        calLink: '30min'
-      });
+  try {
+    // Create a temporary link with data-cal-link attribute
+    const link = document.createElement('a');
+    link.setAttribute('data-cal-link', 'florian-autotasq/30min');
+    link.setAttribute('data-cal-config', JSON.stringify({
+      layout: 'month_view',
+      theme: 'light'
+    }));
+    link.style.display = 'none';
 
-      console.log('✅ Modal triggered');
-    } catch (error) {
-      console.error('❌ Error opening modal:', error);
-      // Fallback: open in new tab
-      console.log('↗️ Opening in new tab as fallback');
-      window.open('https://cal.com/florian-autotasq/30min', '_blank');
-    }
-  } else {
-    console.warn('⚠️ Cal.com not loaded - opening direct link');
+    // Add to DOM temporarily
+    document.body.appendChild(link);
+
+    // Trigger click
+    link.click();
+
+    // Remove from DOM
+    setTimeout(() => {
+      document.body.removeChild(link);
+    }, 100);
+
+    console.log('✅ Modal triggered via data-cal-link');
+  } catch (error) {
+    console.error('❌ Error triggering modal:', error);
+    console.log('↗️ Opening in new tab as fallback');
     window.open('https://cal.com/florian-autotasq/30min', '_blank');
   }
 };
